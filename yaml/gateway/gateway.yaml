@@ -1,0 +1,6 @@
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      defaultZone: http://j9e101.p.ssafy.io:8761/eureka
