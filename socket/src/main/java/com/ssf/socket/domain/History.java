@@ -1,5 +1,6 @@
 package com.ssf.socket.domain;
 
+import com.ssf.socket.dto.ArticleDTO;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +8,6 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.List;
-import java.util.Map;
 
 @Getter
 @Setter
@@ -17,6 +17,10 @@ public class History {
 
     @Id
     int historyId;
-    List<List<String>> articles;
+    String category;
+    String solvedDate;
+    String articlesDate;
+    String roomName;
+    List<ArticleDTO> articles;
 
 }

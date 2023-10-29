@@ -27,7 +27,7 @@ public class StompRoomController {
     private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
 
-    @PostMapping("/socket/find")
+    @PostMapping("/api/socket/find")
     @CrossOrigin(origins = "*")
     public Optional<Room> searchRoom(
             @RequestBody Room room) {
@@ -35,7 +35,7 @@ public class StompRoomController {
         return roomRepository.findByRoomId(room.getRoomId());
     }
 
-    @PostMapping("/socket/lobby")
+    @PostMapping("/api/socket/lobby")
     @CrossOrigin(origins = "*")
     public Room createRoom(
             @RequestBody Room body) {

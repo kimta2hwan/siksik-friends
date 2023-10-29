@@ -6,15 +6,14 @@ import com.ssf.socket.domain.History;
 import com.ssf.socket.domain.HistoryMember;
 import com.ssf.socket.domain.Member;
 import com.ssf.socket.domain.Quiz;
+import com.ssf.socket.dto.ArticleDTO;
 import com.ssf.socket.dto.QuizDTO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoTemplate;
-import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
-import org.springframework.data.mongodb.core.query.UpdateDefinition;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -37,20 +36,20 @@ public class QuizSaveService {
         categoryTable.put("경제", "quiz1");
         categoryTable.put("사회", "quiz2");
         categoryTable.put("생활/문화", "quiz3");
-        categoryTable.put("IT/과학", "quiz4");
-        categoryTable.put("세계", "quiz5");
+        categoryTable.put("세계", "quiz4");
+        categoryTable.put("IT/과학", "quiz5");
 
         categoryCountTable.put("경제", "economySolvedQuizCount");
         categoryCountTable.put("사회", "socialSolvedQuizCount");
         categoryCountTable.put("생활/문화", "livingSolvedQuizCount");
-        categoryCountTable.put("IT/과학", "scienceSolvedQuizCount");
         categoryCountTable.put("세계", "globalSolvedQuizCount");
+        categoryCountTable.put("IT/과학", "scienceSolvedQuizCount");
 
         categoryCorrectTable.put("경제", "economyCorrectQuizCount");
         categoryCorrectTable.put("사회", "socialCorrectQuizCount");
         categoryCorrectTable.put("생활/문화", "livingCorrectQuizCount");
-        categoryCorrectTable.put("IT/과학", "scienceCorrectQuizCount");
         categoryCorrectTable.put("세계", "globalCorrectQuizCount");
+        categoryCorrectTable.put("IT/과학", "scienceCorrectQuizCount");
     }
 
     public Quiz getQuiz(String date, String collectionName) {
@@ -73,7 +72,7 @@ public class QuizSaveService {
                 mongoTemplate.save(newHistoryMember);
             }
 
-            Query query2 = new Query(Criteria.where("userId").is(member.getUserId()));
+            Query query = new Query(Criteria.where("userId").is(member.getUserId()));
 
             Update update2 = new Update();
             update2.addToSet("historyList", roomId);
@@ -82,27 +81,34 @@ public class QuizSaveService {
             update2.inc(categoryCountTable.get(quizType), allQuizCount);
             update2.inc(categoryCorrectTable.get(quizType), member.getGameCorrect());
 
-            mongoTemplate.upsert(query2, update2, HistoryMember.class);
+            mongoTemplate.upsert(query, update2, HistoryMember.class);
         }
     }
 
-    public void pushHistory(int roomId, QuizDTO article) {
+    public void pushHistory(int roomId, List<QuizDTO> solvedQuiz, String category, String quizDate, String roomDate, String roomName) {
+
+        List<ArticleDTO> articles = new ArrayList<>();
+
+        for (QuizDTO hint : solvedQuiz) {
+            ArticleDTO article = new ArticleDTO();
+            article.setArticleQuiz(hint.getQuestion().getHints());
+            article.setArticleTitle(hint.getQuestion().getTitle());
+            article.setArticleAnswer(hint.getAnswer());
+            articles.add(article);
+        }
 
         Query query = new Query(Criteria.where("historyId").is(roomId));
 
-        List<List<String>> articles = new ArrayList<>();
-
-        List<String> container = new ArrayList<>();
-
-        container.add(0, article.getArticleTitle());
-        container.add(1, article.getArticleContent());
-
-        articles.add(container);
-
         Update update = new Update();
-        update.addToSet("articles", articles);
+        update.set("category", category);
+        update.set("solvedDate", roomDate);
+        update.set("articlesDate", quizDate);
+        update.set("articles", articles);
+        update.set("roomName", roomName);
 
         mongoTemplate.upsert(query, update, History.class);
+
+
 
     }
 

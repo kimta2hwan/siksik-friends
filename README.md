@@ -14,7 +14,7 @@
 - [🛠️ 기술 스택](#skills)
 - [💾 데이터 파이프라인](#dataPipelines)
 - [⚙ 시스템 아키텍쳐](#systemArchitecture)
-- [🪜 설계](#design)
+- [👷 설계](#design)
 - [👥 팀원 소개](#members)
 
 # 기획 배경
@@ -35,7 +35,7 @@
 
 ### 1. 메인 페이지
 
-![메인](/uploads/79fe71eca732b49aa6b99b98eae57cfb/메인.gif)
+![메인](./assets/메인.gif)
 
 게임의 특성을 살리기 위해 다양한 애니메이션 효과와 배경음악을 사용하여 밝고 신나는 분위기를 완성했습니다.
 
@@ -47,19 +47,19 @@
 
 ## 2. 워드 클라우드
 
-![ezgif.com-video-to-gif](/uploads/aa87487adf689be172d7063f5997e3e0/ezgif.com-video-to-gif.gif)
+![ezgif.com-video-to-gif](./assets/ezgif.com-video-to-gif.gif)
 
 ## 3. 내 프로필
 
-![ezgif.com-video-to-gif__2_](/uploads/08f039045eac411fdd2bf59872151976/ezgif.com-video-to-gif__2_.gif)
+![ezgif.com-video-to-gif__2_](./assets/프로필.gif)
 
 ## 4. 게임
 
-![ezgif.com-video-to-gif__1_](/uploads/98fdcf21d91e6e3309a709ac17401880/ezgif.com-video-to-gif__1_.gif)
+![ezgif.com-video-to-gif__1_](./assets/문제풀이.gif)
 
 ## 5. 대기실
 
-![ezgif.com-video-to-gif__3_](/uploads/ad441cabaa2703b8c0e6bf0e1b93b25b/ezgif.com-video-to-gif__3_.gif)
+![ezgif.com-video-to-gif__3_](./assets/ezgif.com-video-to-gif__3_.gif)
 
 # 기술 스택
 
@@ -74,6 +74,12 @@
 ## 백
 
 <img src="https://img.shields.io/badge/springboot-6DB33F?style=for-the-badge&logo=springboot&logoColor=white">
+
+<img src="https://img.shields.io/badge/postgresql-4169E1?style=for-the-badge&logo=postgresql&logoColor=white">
+
+<img src="https://img.shields.io/badge/MongoDB-47A248?style=for-the-badge&logo=MongoDB&logoColor=white">
+
+<img src="https://img.shields.io/badge/redis-DC382D?style=for-the-badge&logo=redis&logoColor=white">
 
 ---
 
@@ -132,5 +138,5 @@
 | 이름      | **구희영**                                                                             | **권인식**                                                                                   | **김태환**                                                                                     | **이세울**                                                                                    | **김나연**                                                                                   | **황유성**                                                                                     |
 |:-------:|:-----------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|:------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------:|:-------------------------------------------------------------------------------------------:|
 | **사진**  | <img title="" src="./assets/hy.png" alt="heeyoung" width="133" data-align="center"> | <img title="" src="./assets/image%20(4).png" alt="insik" width="201" data-align="center"> | <img title="" src="./assets/image%20(3).png" alt="taehwan" width="173" data-align="center"> | <img title="" src="./assets/image%20(6).png" alt="sewool" data-align="center" width="172"> | <img title="" src="./assets/image%20(5).png" alt="nayeon" data-align="center" width="94"> | <img title="" src="./assets/image%20(2).png" alt="yuseong" data-align="center" width="126"> |
-| **포지션** | 팀장<br/>프론트엔드                                                                        | PM<br /><br/>Server<br/>CI/CD<br/>Game/Socket MSA                                         | MSA 총괄 <br />Auth/Member MSA                                                                | Member MSA<br />프론트엔드                                                                      | 데이터 파이프라인 설계<br />하둡 클러스터링 <br/>데이터 수집 및 저장                                               | 자연어처리 <br />워드 클라우드 및 퀴즈 생성 <br />                                                          |
+| **포지션** | 팀장<br/>프론트엔드                                                                        | Server<br/>Game                                     | MSA<br>Auth<br>Member                                                           | 프론트엔드                                                                      | 데이터 파이프라인 설계<br />하둡 클러스터링 <br/>데이터 수집 및 저장                                               | 자연어처리 <br />워드 클라우드 및 퀴즈 생성 <br />                                                          |
 | **깃허브** | [Github](https://github.com/hi9900)                                                 | [Github](https://github.com/PassionSoftIan)                                               | [Github](https://github.com/kimta2hwan)                                                     | [Github](https://github.com/sl39)                                                          | [Github](https://github.com/nayeonxkim)                                                   | [Github](https://github.com/StarSein)                                                       |

@@ -32,7 +32,7 @@ public class HistoryController {
         this.quizSaveService = quizSaveService;
     }
 
-    @PostMapping("/socket/history")
+    @PostMapping("/api/socket/history")
     public HistoryDTO getHistory(@RequestBody Member user) {
         
         HistoryDTO allAboutUser = new HistoryDTO();
@@ -84,7 +84,7 @@ public class HistoryController {
         return allAboutUser;
     }
 
-    @DeleteMapping("/socket/delete")
+    @DeleteMapping("/api/socket/delete")
     public String deleteHistory () {
         quizSaveService.deleteAllHistory();
         return "모든 전적 삭제";
